@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from hospital_admin.models import Bed, Room
+from facility_admin.models import Bed, Room
 
 
 class BedSerializer(serializers.ModelSerializer):
@@ -12,7 +12,7 @@ class BedSerializer(serializers.ModelSerializer):
 class RoomSerializer(serializers.ModelSerializer):
     class Meta:
         model = Room
-        fields = ['id', 'hospital_id', 'room_loc']
+        fields = ['id', 'facility_id', 'room_loc']
 
 
 

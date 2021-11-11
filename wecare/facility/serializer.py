@@ -1,11 +1,11 @@
 from rest_framework import serializers
 
-from hospital.models import Patient, Nurse, Diet
+from facility.models import Elders, Nurse, Diet
 
 
-class PatientSerializer(serializers.ModelSerializer):
+class EldersSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Patient
+        model = Elders
         fields = ['id', 'nurse_id', 'bed_id', 'name', 'age', 'gender', 'note', 'companion_num', 'companion_relation']
 
 

@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-from hospital_admin.models import Adminster, Bed
+from facility_admin.models import Adminster, Bed
 
 
 class Nurse(models.Model):
@@ -16,7 +16,7 @@ class Nurse(models.Model):
         return self.name
 
 
-class Patient(models.Model):
+class Elders(models.Model):
     objects = models.Manager()
 
     GENDER_CHOICES = (
