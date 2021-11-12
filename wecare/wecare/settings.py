@@ -11,8 +11,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+
 import datetime #56에서 시작되는 JWT_AUTH 의 토큰 유효기간을 설정하기 위한 datetime import
 import os  #image가 추가 될때 경로
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,6 +27,7 @@ SECRET_KEY = 'django-insecure-v@%qp(h)v*-7p^fv*3^6#lkgqoz+9p^&&41h05xi#b^58r-+!^
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
 
 ALLOWED_HOSTS = []
 
@@ -54,6 +57,7 @@ JWT_AUTH = { # 추가
 }
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -64,14 +68,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+
+    'rest_framework',
+
     'family',
     'user',
-    'hospital',
-    'hospital_admin',
+    'facility',
+    'facility_admin',
+
 
     'rest_framework',  # 추가
     'rest_framework_jwt',  # 추가
     'corsheaders',  # 추가
+
 
 ]
 
@@ -84,7 +93,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
+
     'corsheaders.middleware.CorsMiddleware',  # 추가
+
 ]
 
 ROOT_URLCONF = 'wecare.urls'
@@ -117,6 +128,18 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'wecare',
+#         'USER': 'remote',
+#         'PASSWORD': '1234',
+#         'HOST': '3.15.69.19',
+#         'PORT': '3306',
+#     }
+# }
 
 
 # Password validation
