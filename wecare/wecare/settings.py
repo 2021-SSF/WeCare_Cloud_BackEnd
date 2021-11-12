@@ -68,14 +68,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-
-    'rest_framework',
-
-    'family',
-    'user',
-    'facility',
-    'facility_admin',
-
+    'family', # 환자 가족 페이지 -> 추후 수정될 수 있음
+    'user', # 로그인 관련때문에 있는것 -> 여기서 수정해야할거 가족 관리자, 간호사 modal user 상속해서 구현해야함....  > authentication으로 변경
+    'facility', #요양시설 -> bed나 room 요양시설 정보 diet들어가고
+    'facility_admin', # 관리자 페이지 인데 추후에 수정해야함........
 
     'rest_framework',  # 추가
     'rest_framework_jwt',  # 추가
