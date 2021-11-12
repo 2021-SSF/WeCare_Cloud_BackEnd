@@ -4,11 +4,12 @@ from django.db import models
 
 
 class Facility(models.Model):
+    name = models.CharField(max_length=100)
     location = models.CharField(max_length=300)
     number = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.id # name 추가 해야 할듯..?!
+        return self.name # name 추가 해야 할듯..?!
 
 
 class Adminster(models.Model):
@@ -16,7 +17,7 @@ class Adminster(models.Model):
     password = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
 class Room(models.Model):
     facility_id = models.ForeignKey(Facility, on_delete=models.CASCADE)
@@ -30,4 +31,4 @@ class Bed(models.Model):
     # camera_id
 
     def __str__(self):
-        return self.id
+        return str(self.id)

@@ -5,7 +5,7 @@ from facility_admin.models import Bed, Room, Facility, Adminster
 class FacilitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Facility
-        fields = ['id', 'location', 'number']
+        fields = ['id', 'name', 'location', 'number']
 
 
 class AdminsterSerializer(serializers.ModelSerializer):

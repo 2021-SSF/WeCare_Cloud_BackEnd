@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-from facility_admin.models import Adminster, Bed
+from facility_admin.models import Adminster, Bed, Room
 
 
 class Nurse(models.Model):
@@ -20,10 +20,11 @@ class Elders(models.Model):
     objects = models.Manager()
 
     GENDER_CHOICES = (
-        ('남', '여'),
-        ('남자', '여자'),
+        ('여', '남'),
+        ('남자', '여'),
     )
 
+    room_id = models.ForeignKey(Room, on_delete=models.CASCADE)
     nurse_id = models.ForeignKey(Nurse, on_delete=models.CASCADE)
     bed_id = models.ForeignKey(Bed, on_delete=models.CASCADE)  # bed model ?!
     name = models.CharField(max_length=10)
