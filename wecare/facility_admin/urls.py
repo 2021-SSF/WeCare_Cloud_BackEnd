@@ -14,9 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+
+from facility import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/facility/', include('facility.urls')),
+    path('<str:facility_id>/', views.facilityRoom_list, name="facilityRoom_list"), #병원 정보 페이지 리스트
+
 ]

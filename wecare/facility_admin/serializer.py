@@ -1,7 +1,17 @@
 from rest_framework import serializers
 
-from facility_admin.models import Bed, Room
+from facility_admin.models import Bed, Room, Facility, Adminster
 
+class FacilitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Facility
+        fields = ['id', 'location', 'number']
+
+
+class AdminsterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Adminster
+        fields = ['id', 'facility_id', 'password']
 
 class BedSerializer(serializers.ModelSerializer):
     class Meta:
