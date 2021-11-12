@@ -8,10 +8,11 @@ from django.dispatch import receiver
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User,primary_key=True,on_delete=models.CASCADE)
+    user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
     user_pk = models.IntegerField(blank=True)
-    email = models.EmailField(max_length=500,blank=True)
-    phone = models.CharField(max_length=20,blank=True)
+    email = models.EmailField(max_length=500, blank=True)
+    phone = models.CharField(max_length=20, blank=True)
+
     # relationship = models.CharField(max_length=20,blank=True)
     # residence = models.CharField(max_length=500)
 
