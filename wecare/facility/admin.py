@@ -1,8 +1,11 @@
 from django.contrib import admin
 
 # Register your models here.
-from facility.models import Elders, Nurse, Diet
+from facility.models import Room, Bed, Elder, ElderStatus, Violence, OccupancyGraph
 
-admin.site.register(Elders)
-admin.site.register(Nurse)
-admin.site.register(Diet)
+admin.site.register(Room)
+admin.site.register(Bed)
+admin.site.register(Elder)
+admin.site.register(ElderStatus)
+admin.site.register(Violence)
+admin.site.register(OccupancyGraph)

@@ -1,22 +1,28 @@
 from rest_framework import serializers
 
-from facility.models import Elders, Nurse, Diet
+from facility.models import Elder, Bed, Room, ElderStatus
 
 
-class EldersSerializer(serializers.ModelSerializer):
+class ElderSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Elders
-        fields = ['id', 'nurse_id', 'bed_id', 'name', 'age', 'gender', 'note', 'companion_num', 'companion_relation']
+        model = Elder
+        fields = ['id', 'room_id', 'bed_id', 'name', 'age', 'gender', 'sickness', 'recent_problem']
 
 
-class NurseSerializer(serializers.ModelSerializer):
+
+class BedSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Nurse
-        fields = ['id', 'admin_id', 'name', 'password', 'phone']
+        model = Bed
+        fields = ['id', 'room_id']
 
 
-class DietSerializer(serializers.ModelSerializer):
+class RoomSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Diet
-        fields = ['id', 'nurse_id', 'image', 'time']
+        model = Room
+        fields = ['id', 'room_loc']
 
+
+class ElderStatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ElderStatus
+        fields = ['id', 'elder_id', 'time', 'lay', 'sit', 'empty', 'recent_status', 'today_status', 'max_status']
