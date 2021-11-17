@@ -53,7 +53,6 @@ JWT_AUTH = { # 추가
    'JWT_ALLOW_REFRESH': True, #유효기간이 지나면 새로운 토큰반환의 refresh
    'JWT_EXPIRATION_DELTA': datetime.timedelta(minutes=30),  # Access Token의 만료 시간
    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=3), # Refresh Token의 만료 시간
-   'JWT_RESPONSE_PAYLOAD_HANDLER': 'wecare.custom_responses.my_jwt_response_handler'
 }
 
 
@@ -110,7 +109,7 @@ WSGI_APPLICATION = 'wecare.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
+#
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -118,13 +117,13 @@ DATABASES = {
     }
 }
 
-
+#
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'wecare',
-#         'USER': 'remote',
-#         'PASSWORD': '1234',
+#         'NAME': 'wecareDB',
+#         'USER': 'wecare_admin',
+#         'PASSWORD': 'admin1234@',
 #         'HOST': '3.15.69.19',
 #         'PORT': '3306',
 #     }

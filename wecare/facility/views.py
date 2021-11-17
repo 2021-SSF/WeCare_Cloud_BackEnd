@@ -13,14 +13,14 @@ from facility.serializer import RoomSerializer, ElderSerializer, ElderStatusSeri
 
 
 @api_view(['GET'])
-def facilityRoom_list(request):  # 병원 정보 페이지 리스트
+def facility_room_list(request):  # 병원 정보 페이지 리스트
     facilityRooms = Room.objects.all()
     serializer = RoomSerializer(facilityRooms, many=True)
     return Response(serializer.data)
 
 
 @api_view(['GET'])
-def facility_detail(request, room_id):  # 병원정보 클릭하면 이동하는 페이지  # !!!!!!이부분은 나중에 변경 !!!!!
+def facility_room_detail(request, room_id):  # 병원정보 클릭하면 이동하는 페이지  # !!!!!!이부분은 나중에 변경 !!!!!
     elders = Elder.objects.filter(room_id=room_id)
     serializer = ElderSerializer(elders, many=True)
     return Response(serializer.data)
@@ -34,7 +34,7 @@ def elder_detail(request, elders_id):  # 환자 상세정보
 
 
 @api_view(['POST'])
-def elderStatus_Create(request):
+def elder_status_create(request):
     serializer = ElderStatusSerializer(request.data)
 
     if serializer.is_valid():
@@ -43,3 +43,5 @@ def elderStatus_Create(request):
 
     else:
         return Response({"message": "failed"})
+
+

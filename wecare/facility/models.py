@@ -9,7 +9,7 @@ class Room(models.Model):
     room_loc = models.CharField(max_length=300)
 
     def __str__(self):
-        return self.room_loc
+        return str(self.id)
 
 
 class Bed(models.Model):
@@ -61,7 +61,7 @@ class Violence(models.Model):
     objects = models.Manager()
 
     bed_id = models.ForeignKey(Bed, on_delete=models.CASCADE)
-    time = models.DateTimeField()
+    time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return str(self.id)
