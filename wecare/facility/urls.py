@@ -19,8 +19,9 @@ from django.urls import path, include
 from facility import views
 
 urlpatterns = [
-    path('', views.facilityRoom_list, name="facilityRoom_list"), # 병원 병실 리스트
+    path('', views.facility_room_list, name="facility_room_list"), # 병원 병실 리스트
     path('rooms/<int:room_id>/', views.facility_detail, name="facility_detail"),  # 방에 맞는 환자들 정보 가져오기
-    path('rooms/<int:room_id>/elder/<int:elder_id>/', views.elder_detail, name="elder_detail"),  # 환자 상세정보
+    path('elder/<int:elder_id>/', views.elder_detail, name="elder_detail"),  # 환자 상세정보
+    # path('rooms/<int:room_id>/elder/<int:elder_id>/', views.elder_detail, name="elder_detail"),  # 환자 상세정보
     path('occupancy/{data}/', views.elderStatus_Create, name="elderStatus_Create"),  # 환자 상세정보
 ]

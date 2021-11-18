@@ -13,7 +13,7 @@ from facility.serializer import RoomSerializer, ElderSerializer, ElderStatusSeri
 
 
 @api_view(['GET'])
-def facilityRoom_list(request):  # 병원 정보 페이지 리스트
+def facility_room_list(request):  # 병원 정보 페이지 리스트
     facilityRooms = Room.objects.all()
     serializer = RoomSerializer(facilityRooms, many=True)
     return Response(serializer.data)
@@ -27,8 +27,8 @@ def facility_detail(request, room_id):  # 병원정보 클릭하면 이동하는
 
 
 @api_view(['GET'])
-def elder_detail(request, elders_id):  # 환자 상세정보
-    elders = Elder.objects.get(id=elders_id)
+def elder_detail(request, elder_id):  # 환자 상세정보
+    elders = Elder.objects.get(id=elder_id)
     serializer = ElderSerializer(elders, many=False)
     return Response(serializer.data)
 

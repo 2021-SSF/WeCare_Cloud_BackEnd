@@ -34,8 +34,8 @@ class Elder(models.Model):
     name = models.CharField(max_length=10)
     age = models.IntegerField()
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
-    sickness = models.TextField(max_length=300)
-    recent_problem = models.TextField(max_length=300)
+    sickness = models.TextField(max_length=300, null=True, blank=True)
+    recent_problem = models.TextField(max_length=300, null=True, blank=True)
 
     def __str__(self):
         return self.name
