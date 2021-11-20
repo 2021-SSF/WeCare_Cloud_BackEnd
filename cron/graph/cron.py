@@ -20,20 +20,14 @@ import datetime
 #ssf-graph-team2우리 이미지 bucket 이름
 
 
-# s3 = boto3.resource('s3')
-# for bucket in s3.buckets.all():
-#     if bucket.name == 'ssf-graph-team2':
-#         # print(bucket.name)
-#         pass
-#이름 날자_환자id.jpg로 이미지 업로드
 
-def all_elders():
+def draw_graph_all_elders():
     elders = Elder.objects.all()
     elders_serializer = ElderSerializer(elders, many=True)
     for data in elders_serializer.data:
-        draw_graph(dict(data)['id'])
+        draw_graph_elder(dict(data)['id'])
 
-def draw_graph(id):
+def draw_graph_elder(id):
     elder = ElderStatus.objects.filter(elder_id=id)
     serializer = ElderStatusSerializer(elder, many=True)
 
@@ -57,29 +51,26 @@ def draw_graph(id):
 
     now = datetime.datetime.now().strftime('%Y-%m-%d')
 
-    name = id + "-" + now
+    plt.savefig(now)
+    upload = now + '.png'
 
-    plt.savefig(name)
-    upload = name + '.png'
-    upload_graph(upload, 'ssf-graph-team2')
+    upload_graph(upload, 'ssf-graph-team2', str(id))
 
-    # s3 = boto3.client('s3')
-    #
-    # s3.upload_file(upload, 'ssf-graph-team2', upload)
-    # 이미지 local에 저장된거 삭제
+
     os.remove(upload)
 
 
-def upload_graph(file_name, bucket, object_name=None):
+def upload_graph(file_name, bucket,id, object_name=None):
     if object_name is None:
         object_name = os.path.basename(file_name)
 
         # Upload the file
     s3_client = boto3.client('s3')
     try:
-        response = s3_client.upload_file(file_name, bucket, object_name)
+        response = s3_client.upload_file(file_name, bucket, '%s/%s' % (id, file_name))
     except ClientError as e:
         logging.error(e)
         return False
     return True
 
+draw_graph_all_elders()

@@ -54,7 +54,7 @@ INSTALLED_APPS = [
 ##Cron
 CRONJOBS = [
     ('*,9,*,*,*', 'kakaotalk.cron.send_talk'),
-    ('55,23,*,*,*', 'graph.cron.draw_graph')
+    ('53,23,*,*,*', 'graph.cron.draw_graph_all_elders')
 ]
 
 # kakaotalk 이란 app 중 cron.py라는 파일 아래의 send_talk이라는 def를 매일 9시 마다 진행된다.
