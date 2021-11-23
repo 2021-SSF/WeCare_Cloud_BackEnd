@@ -23,5 +23,6 @@ urlpatterns = [
     path('rooms/<int:room_id>/', views.facility_detail, name="facility_detail"),  # 방에 맞는 환자들 정보 가져오기
     path('elder/<int:elder_id>/', views.elder_detail, name="elder_detail"),  # 환자 상세정보
     # path('rooms/<int:room_id>/elder/<int:elder_id>/', views.elder_detail, name="elder_detail"),  # 환자 상세정보
-    path('occupancy/{data}/', views.elderStatus_Create, name="elderStatus_Create"),  # 환자 상세정보
+    path('occupancy/{data}/', views.elder_status_create, name="elder_status_create"),  # 환자 상세정보
+    path('incident/{data}/', views.incident_create, name="incident_create"),
 ]

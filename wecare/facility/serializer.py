@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from facility.models import Elder, Bed, Room, ElderStatus
+from facility.models import Elder, Bed, Room, ElderStatus, Violence
 
 
 class ElderSerializer(serializers.ModelSerializer):
@@ -26,3 +26,8 @@ class ElderStatusSerializer(serializers.ModelSerializer):
     class Meta:
         model = ElderStatus
         fields = ['id', 'elder_id', 'time', 'lay', 'sit', 'empty', 'recent_status', 'today_status', 'max_status']
+
+class ViolenceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Violence
+        fields = ['id', 'bed_id', 'time']
