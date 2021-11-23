@@ -45,7 +45,7 @@ class ElderStatus(models.Model):
     objects = models.Manager()
 
     elder_id = models.ForeignKey(Elder, on_delete=models.CASCADE)
-    time = models.DateTimeField()
+    time = models.CharField(max_length=15)
     lay = models.IntegerField()
     sit = models.IntegerField()
     empty = models.IntegerField()

@@ -8,7 +8,7 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
-from facility.models import Room, Elder, ElderStatus
+from facility.models import Room, Elder, ElderStatus,Violence
 from facility.serializer import RoomSerializer, ElderSerializer, ElderStatusSerializer
 
 
@@ -43,3 +43,8 @@ def elderStatus_Create(request):
 
     else:
         return Response({"message": "failed"})
+
+
+@api_view(['GET'])
+def adf(request, room_id):
+    v = Violence.objects.filter(room_id=room_id)
