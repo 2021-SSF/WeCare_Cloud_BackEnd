@@ -20,7 +20,7 @@ def facility_room_list(request):  # 병원 정보 페이지 리스트
 
 
 @api_view(['GET'])
-def facility_detail(request, room_id):  # 병원정보 클릭하면 이동하는 페이지  # !!!!!!이부분은 나중에 변경 !!!!!
+def facility_detail(request, room_id):
     elders = Elder.objects.filter(room_id=room_id)
     serializer = ElderSerializer(elders, many=True)
     return Response(serializer.data)
