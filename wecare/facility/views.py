@@ -48,7 +48,7 @@ def elder_status_create(request):
 
 @api_view(['GET'])
 def elder_status_list(request, elder_id):
-    elder_status = ElderStatus.objects.get(elder_id=elder_id)
+    elder_status = ElderStatus.objects.filter(elder_id=elder_id)
 
     serializer = ElderStatusSerializer(elder_status,many=True)
     print(serializer.data)
