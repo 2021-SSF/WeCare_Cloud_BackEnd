@@ -47,32 +47,27 @@ def elder_status_update(request):
 
 
     if serializer.is_valid():
-        elder_status = ElderStatus.objects.filter(Q(elder_id=content["elder_id"]) & Q(time=content["time"]))
-        print(elder_status)
+        elder_statuses = ElderStatus.objects.filter(Q(elder_id=content["elder_id"]) & Q(time=content["time"]))
+
+        if elder_statuses.exists():
+            elder_status = elder_statuses[0]
+        # print(elder_status)
         # elder_status.id = data.get('id',elder_status.id)
         # elder_status.lay = data.get('lay',elder_status.lay)
         # elder_status.sit = data.get('sit',elder_status.sit)
         # elder_status.empty = data.get('empty',elder_status.empty)
         # elder_status.recent_status = data.get('recent_status',elder_status.recent_status)
-        # elder_status.today_status = data.get('today_status',elder_status.today_status)
-        # elder_status.max_status = data.get('max_status',elder_status.max_status)
-        # elder_status.save()
-        return Response({"message": "success"})
+            elder_status.today_status = data.get('today_status')
+            # elder_status.max_status = data.get('max_status',elder_status.max_status)
+            elder_status.save()
+            return Response({"message": "success"})
+        # 만약 데이터가 없으면 생성할 코드 하나 만들자
+        # else:
+        #     elder_status_create(request)
 
     else:
         return Response({"message": "failed"})
 
-
-@api_view(['POST'])
-def elder_status_create(request):
-
-
-    # 시리얼 라이저 하나 새로 생성
-    # elder_status = ElderStatusPutSerializer.objects.get(time=request.data.time, elder_id=request.data.bed_id)
-    serializer = ElderStatusPutSerializer(data=request.data)
-    print(serializer)
-
-    return Response({"message": "success"})
 
 
 @api_view(['GET'])
