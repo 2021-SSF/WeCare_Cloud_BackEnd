@@ -5,13 +5,12 @@ import datetime
 from PIL import Image
 import matplotlib.pyplot as plt
 
-tokens={'access_token': 'a8Jbo8WvckxAcw4sBHrKTIReWDzOtp6j3SMjKwopcBMAAAF9Zue1jw',
-        'token_type': 'bearer',
-        'refresh_token': '9aSLWyQnoFzM6FVQFW3WY863PVgppQRHqUZ-YgopcBMAAAF9Zue1jQ',
-        'expires_in': 21599,
-        'scope': 'talk_message profile_nickname friends',
-        'refresh_token_expires_in': 5183999}
+import os
+this_directory = os.path.dirname(__file__)
+file_path = os.path.join(this_directory, '../kakao_json/kakao_json.json')
 
+with open(file_path, "r") as fp:
+    tokens = json.load(fp)
 friend_url = "https://kapi.kakao.com/v1/api/talk/friends"
 headers={"Authorization" : "Bearer " + tokens["access_token"]}
 
@@ -23,7 +22,7 @@ friend_id = friends_list[2].get("uuid")
 
 def send_talk():
     url = "https://kapi.kakao.com/v1/api/talk/friends/message/default/send"
-    now = (datetime.datetime.now() ).strftime('%Y-%m-%d')
+    now = (datetime.datetime.now()).strftime('%Y-%m-%d')
     # now = (datetime.datetime.now() - datetime.timedelta(days=1)).strftime('%Y-%m-%d')
     img = "https://ssf-graph-team2.s3.us-east-2.amazonaws.com/" + str(1) + "/" + now + ".png"
 
@@ -43,3 +42,4 @@ def send_talk():
 def crontab_job():
     send_talk()
     pass
+send_talk()
