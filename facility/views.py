@@ -9,7 +9,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
 from facility.models import Room, Elder, ElderStatus, Violence,Bed
-from facility.serializer import RoomSerializer, ElderSerializer, ElderStatusSerializer, ViolenceSerializer,BedSerializer
+from facility.serializer import RoomSerializer, ElderSerializer, ElderStatusSerializer, ViolenceSerializer,BedSerializer,ElderStatusPutSerializer
 
 from facility.kakao import send_talk
 
@@ -34,16 +34,35 @@ def elder_detail(request, elder_id):  # 환자 상세정보
     return Response(serializer.data)
 
 
+@api_view(['PUT'])
+def elder_status_update(request):
+
+
+    # 시리얼 라이저 하나 새로 생성
+    # elder_status = ElderStatusPutSerializer.objects.get(time=request.data.time, elder_id=request.data.bed_id)
+    serializer = ElderStatusPutSerializer(data=request.data)
+    print(serializer)
+
+    return Response({"message": "success"})
+
+    # if serializer.is_valid():
+    #     serializer.save()
+    #     return Response({"message": "success"})
+    #
+    # else:
+    #     return Response({"message": "failed"})
+
+
 @api_view(['POST'])
 def elder_status_create(request):
-    serializer = ElderStatusSerializer(data=request.data)
 
-    if serializer.is_valid():
-        serializer.save()
-        return Response({"message": "success"})
 
-    else:
-        return Response({"message": "failed"})
+    # 시리얼 라이저 하나 새로 생성
+    # elder_status = ElderStatusPutSerializer.objects.get(time=request.data.time, elder_id=request.data.bed_id)
+    serializer = ElderStatusPutSerializer(data=request.data)
+    print(serializer)
+
+    return Response({"message": "success"})
 
 
 @api_view(['GET'])

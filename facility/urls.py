@@ -27,4 +27,6 @@ urlpatterns = [
     path('incident/', views.incident_create, name="incident_create"),
     path('incidents/<int:room_id>/', views.incident_list,name="incident_list"),
     path('elders_status/<int:elder_id>/', views.elder_status_list, name="elder_status_list"),
+    path('occupancy_update/', views.elder_status_update, name="elder_status_update"),  # 환자 상세정보
+
 ]

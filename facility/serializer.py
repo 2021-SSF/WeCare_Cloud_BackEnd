@@ -27,6 +27,14 @@ class ElderStatusSerializer(serializers.ModelSerializer):
         model = ElderStatus
         fields = ['id', 'elder_id', 'time', 'lay', 'sit', 'empty', 'recent_status', 'today_status', 'max_status']
 
+
+class ElderStatusPutSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ElderStatus
+        fields = ['id', 'elder_id', 'time','today_status']
+
+
+
 class ViolenceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Violence
