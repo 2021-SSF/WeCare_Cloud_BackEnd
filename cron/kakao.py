@@ -5,8 +5,12 @@ import datetime
 from PIL import Image
 import matplotlib.pyplot as plt
 
-tokens={'access_token': 'qPaUMDAr1-myuMv8Et3VPbkQeMsl-hCTVCjPTQo9dRkAAAF9b7tC3w', 'token_type': 'bearer', 'refresh_token': 'wl6wf7ZykqD4pRr77h-Zv-HMUskOxRBTjVBvcgo9dRkAAAF9b7tC3g', 'expires_in': 21599, 'scope': 'talk_message profile_nickname friends', 'refresh_token_expires_in': 5183999}
+import os
+this_directory = os.path.dirname(__file__)
+file_path = os.path.join(this_directory, '../kakao_json/kakao_json.json')
 
+with open(file_path, "r") as fp:
+    tokens = json.load(fp)
 friend_url = "https://kapi.kakao.com/v1/api/talk/friends"
 headers={"Authorization" : "Bearer " + tokens["access_token"]}
 
@@ -38,3 +42,4 @@ def send_talk():
 def crontab_job():
     send_talk()
     pass
+send_talk()

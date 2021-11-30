@@ -31,7 +31,7 @@ class ElderStatusSerializer(serializers.ModelSerializer):
 class ElderStatusPutSerializer(serializers.ModelSerializer):
     class Meta:
         model = ElderStatus
-        fields = ['id', 'elder_id', 'time','today_status']
+        fields = ['elder_id', 'time','today_status']
 
 
 

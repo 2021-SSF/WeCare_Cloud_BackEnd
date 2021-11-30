@@ -4,14 +4,11 @@ import boto3
 import datetime
 from PIL import Image
 import os
-# current_path = os.getcwd()
+this_directory = os.path.dirname(__file__)
+file_path = os.path.join(this_directory, '../kakao_json/kakao_json.json')
 
-# file = os.path.join(os.getcwd()+"kakao_code.json")
-# print(file)
-# with open(file,"r") as fp:
-#     tokens = json.load(fp)
-
-tokens={'access_token': 'qPaUMDAr1-myuMv8Et3VPbkQeMsl-hCTVCjPTQo9dRkAAAF9b7tC3w', 'token_type': 'bearer', 'refresh_token': 'wl6wf7ZykqD4pRr77h-Zv-HMUskOxRBTjVBvcgo9dRkAAAF9b7tC3g', 'expires_in': 21599, 'scope': 'talk_message profile_nickname friends', 'refresh_token_expires_in': 5183999}
+with open(file_path, "r") as fp:
+    tokens = json.load(fp)
 
 friend_url = "https://kapi.kakao.com/v1/api/talk/friends"
 headers={"Authorization" : "Bearer " + tokens["access_token"]}
