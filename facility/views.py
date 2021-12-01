@@ -51,14 +51,7 @@ def elder_status_update(request):
 
         if elder_statuses.exists():
             elder_status = elder_statuses[0]
-        # print(elder_status)
-        # elder_status.id = data.get('id',elder_status.id)
-        # elder_status.lay = data.get('lay',elder_status.lay)
-        # elder_status.sit = data.get('sit',elder_status.sit)
-        # elder_status.empty = data.get('empty',elder_status.empty)
-        # elder_status.recent_status = data.get('recent_status',elder_status.recent_status)
             elder_status.today_status = data.get('today_status')
-            # elder_status.max_status = data.get('max_status',elder_status.max_status)
             elder_status.save()
             return Response({"message": "success"})
         # 만약 데이터가 없으면 생성할 코드 하나 만들자
@@ -74,8 +67,8 @@ def elder_status_update(request):
 def elder_status_list(request, elder_id):
     elder_status = ElderStatus.objects.filter(elder_id=elder_id)
 
-    serializer = ElderStatusSerializer(elder_status,many=True)
-    print(serializer.data)
+    serializer = ElderStatusSerializer(elder_status, many=True)
+    # print(serializer.data)
     return Response(serializer.data)
 
 
