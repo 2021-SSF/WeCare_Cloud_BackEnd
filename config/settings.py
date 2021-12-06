@@ -52,9 +52,9 @@ b_d = str(BASE_DIR)
 
 ##Cron
 CRONJOBS = [
-    ('* 11 * * *', 'cron.kakao.send_talk'),
-    ('50 12 * * *', 'cron.graph.draw_one_patient'),
-    ('00 13 * * *', 'cron.update_db.draw_one_patient'),
+    ('* 7 * * *', 'cron.kakao.send_talk'),
+    ('53 23 * * *', 'cron.graph.draw_one_patient'),
+    # ('00 13 * * *', 'cron.update_db.draw_one_patient'),
 ]
 
 MIDDLEWARE = [
@@ -91,23 +91,23 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'wecareDB',
-#         'USER': 'wecare_admin',
-#         'PASSWORD': 'admin1234@',
-#         'HOST': '3.15.69.19',
-#         'PORT': '3306',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'wecareDB',
+        'USER': 'wecare_admin',
+        'PASSWORD': 'admin1234@',
+        'HOST': '3.15.69.19',
+        'PORT': '3306',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
