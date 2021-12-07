@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"access_token": "Bo868azrzZKDwH9FhEybQJC4L7WXvwU8rGOVCgo9dGgAAAF9k1LI9Q", "token_type": "bearer", "refresh_token": "XtS_PC9VQdVzhfO_7U_-OYOXnZsWTPUsboJ2aQo9dGgAAAF9k1LI8w", "expires_in": 21599, "scope": "talk_message profile_nickname friends", "refresh_token_expires_in": 5183999}
+=======
+{"access_token": "gK2uk_Zt2AwNEMk0AWXb09Nd0fyXcGZRXrT5sgo9dJkAAAF9dMb4JQ", "token_type": "bearer", "refresh_token": "B7wvOLTehStbrKshCgrX9TrYFoQtG0iCrIP1fQo9dJkAAAF9dMb4JA", "expires_in": 21599, "scope": "talk_message profile_nickname friends", "refresh_token_expires_in": 5183999}
+>>>>>>> 41bff4fb5a60f5cc47d0d30505839d6f5dd984b3
