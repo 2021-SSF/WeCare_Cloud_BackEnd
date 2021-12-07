@@ -32,7 +32,7 @@ def send_talk():
 
     data = { 'receiver_uuids': '["{}"]'.format(friend_id),
         "template_object": json.dumps({"object_type": "feed",
-                                           "content": {"title": "박종범 환자님의 "+now+"의 수면 그래프입니다", "description": "자세한 사항은 010-****-**** 으로 연락주세요",
+                                           "content": {"title": " 나문희 환자님의 "+now+"의 수면 그래프입니다", "description": "자세한 사항은 010-****-**** 으로 연락주세요",
                                                        "image_url": img,
                                                        "link": {"web_url": img}}})}
 

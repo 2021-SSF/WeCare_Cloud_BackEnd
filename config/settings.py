@@ -52,7 +52,7 @@ b_d = str(BASE_DIR)
 
 ##Cron
 CRONJOBS = [
-    ('* 7 * * *', 'cron.kakao.send_talk'),
+    ('* 8 * * *', 'cron.kakao.send_talk'),
     ('53 23 * * *', 'cron.graph.draw_one_patient')
 ]
 

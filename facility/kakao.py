@@ -28,7 +28,7 @@ def send_talk():
         'receiver_uuids': '["{}"]'.format(friend_id),
         "template_object": json.dumps({
             "object_type": "text",
-            "text": "폭행 발행!",
+            "text": "소란 발행!",
             "link": {
                 url:""
             }
